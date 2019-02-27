@@ -16,10 +16,34 @@
 
 //console.log(isFreezing)
 
-/*CHALLEGE create a age determinator to see if you can offer discounts based on age*/
+/*CHALLEGE create a age determinator to see if you can offer discounts based on age
 let age = 29
 let child = age <= 7
 let senoir = age >= 65
 
 console.log(child)
 console.log(senoir)
+*/
+
+//IF STATEMENTS SESSION 
+
+let temp = 30
+
+if (temp <= 32) {
+  console.log('It is freezing outside')
+}
+
+if (temp >= 110) {
+  console.log('It is way too hot outside')
+}
+
+/*IF STATEMENT CHALLENGE*/
+
+let age = 5
+
+if (age <= 7) {
+  console.log('You get a child discount')
+}
+if (age >= 65) {
+  console.log('You get a child discount')
+}
