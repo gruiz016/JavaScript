@@ -1,5 +1,29 @@
-const todo = ['Finsih Arrays Section', 'Do My Lectures', 'Finish My Homeword', 'Cook Dinner', 'Fold The Clothes']
+const todo = [{
+  body: 'Do homework',
+  completed: true
 
-console.log(`You have ${todo.length} todos!`)
-console.log(`Todo: ${todo[0]}`)
-console.log(`Todo: ${todo[todo.length - 2]}`)
+}, {
+  body: 'Finsihing course',
+  completed: false
+}, {
+  body: 'Cook dinner',
+  completed: true
+}, {
+  body: 'Take a nap',
+  completed: false
+}, {
+  body: 'Take a shower',
+  completed: true
+}]
+
+const deleteTodo = function (todo, todoBody) {
+  const index = todo.findIndex(function (todos, index) {
+    return todos.body.toLowerCase() === todoBody.toLowerCase()
+  })
+  if (index > -1) {
+    todo.splice(index, 1)
+  }
+}
+
+deleteTodo(todo, 'take a nap')
+console.log(todo)
