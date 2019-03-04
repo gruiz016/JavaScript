@@ -1,5 +1,5 @@
-let studentGrades = function(grade, maxGrade) {
-  let percent = (grade / maxGrade) * 100
+const studentGrades = function(grade, maxGrade) {
+  const percent = (grade / maxGrade) * 100
   let letterGrade = ''
 
   if (percent >= 90) {
@@ -17,7 +17,7 @@ let studentGrades = function(grade, maxGrade) {
   return `You got a ${letterGrade} (${percent}%)!`
 }
 
-let finalGrade = studentGrades(3, 100)
+const finalGrade = studentGrades(3, 100)
 
 console.log(finalGrade)
 
