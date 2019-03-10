@@ -1,39 +1,44 @@
 const notes = [{
-  title: 'Note 1',
+  title: 'my trip',
   body: 'I would like to go to Japan'
 }, {
-  title: 'Note 2',
+  title: 'learn',
   body: 'Add JavaScrip to my stack'
 }, {
-  title: 'Note 3',
+  title: 'School work',
   body: 'Finish my homework'
 }]
+
+const sortNotes = function (notes) {
+  notes.sort(function(a, b) {
+    if (a.title.toLowerCase() < b.title.toLowerCase()) {
+      return -1
+    } else if (b.title.toLowerCase() < a.title.toLowerCase()) {
+      return 1
+    } else {
+      return 0
+    }
+  })
+}
+
 const findNote = function (notes, noteTitle) {
     return notes.find(function (note, index) {
       return note.title.toLowerCase() === noteTitle.toLowerCase()
   })
 }
 
-// const findNote = function (notes, noteTitle) {
-//     const index = notes.findIndex(function (note, index) {
-//         return note.title.toLowerCase() === noteTitle.toLowerCase()
-//     })
-//     return notes[index]
-// }
-const note = findNote(notes, 'note 1')
-console.log(note)
+const findNotes = function (notes, query) {
+  return notes.filter(function(note, index) {
+    const isTitleMacth = note.title.toLowerCase().includes(query.toLowerCase())
+    const isBodyMatch = note.body.toLowerCase().includes(query.toLowerCase())
+    return isTitleMacth || isBodyMatch
+  })
+}
 
-//console.log(notes.length)
-//console.log(notes)
-//Counting
-// for(let count = 0; count <= 2; count++) {
-//   console.log(count)
-// }
-// for(let count = 0; count < notes.length; count++) {
-//   console.log(notes[count]
-// }
-// const index = notes.findIndex(function (item, index) {
-//   return item.title === 'Note 1'
-// })
+// console.log(findNotes(notes, 'MY'))
 
-// console.log(index)
+// const note = findNote(notes, 'note 1')
+// console.log(note)
+
+sortNotes(notes)
+console.log(notes)
