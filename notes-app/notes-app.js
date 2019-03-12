@@ -9,13 +9,35 @@ const notes = [{
   body: 'Finish my homework'
 }]
 
-const ps = document.querySelectorAll('p')
+const filters = {
+  searchText: ''
 
-ps.forEach(function (p) {
-  p.textContent = '***'
+}
+
+const renderNotes = function(notes, filters) {
+  const filterdNotes = notes.filter(function (note) {
+    return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
+  })
+  document.querySelector('#notes').innerHTML = ''
+
+  filterdNotes.forEach(function(note) {
+    const noteElement = document.createElement('p')
+    noteElement.textContent = note.title
+    document.querySelector('#notes').appendChild(noteElement)
+  })
+}
+
+renderNotes(notes, filters)
+
+document.querySelector('#add-note').addEventListener('click', function(e) {
+  console.log('Note added')
 })
 
-//Add a new element
-const newParagraph = document.createElement('p')
-newParagraph.textContent = 'This is a new element from javascript'
-document.querySelector('body').appendChild(newParagraph)
+document.querySelector('#search-notes').addEventListener('input', function(e) {
+  filters.searchText =  e.target.value
+  renderNotes(notes, filters)
+})
+
+document.querySelector('#filter-by').addEventListener('change', function(e) {
+  console.log(e.target.value)
+})

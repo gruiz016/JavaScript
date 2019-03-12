@@ -7,9 +7,14 @@
   <body>
     <h1>Note App - Created By. Giovanni Ruiz</h1>
     <h2>Take Notes - Never Forget About Them!</h2>
-    <p>This app was created using JavaScript</p>
-    <p>Some text</p>
-
+    <input id="search-notes" type="text" placeholder="Type To Query!">  
+    <select id="filter-by">
+      <option value="byEdited">Sort by last edited</option>
+      <option value="byCreated">Sort by recently created</option>
+      <option value="aplhabetically">Sort aplhabetically</option>
+    </select>
+    <div id="notes"></div>
+    <button id = "add-note">Create Note</button>
     <script src="notes-app.js"></script>
   </body>
 
