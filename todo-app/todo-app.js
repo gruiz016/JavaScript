@@ -1,27 +1,16 @@
-const todo = [{
-  body: 'Do homework',
-  completed: true
+let todo = []
 
-}, {
-  body: 'Finsihing course',
-  completed: true
-}, {
-  body: 'Cook dinner',
-  completed: true
-}, {
-  body: 'Take a nap',
-  completed: false
-}, {
-  body: 'Take a shower',
-  completed: false
-}]
+const todoJSON = localStorage.getItem('todo')
 
-
+if (todoJSON !== null) {
+  todo = JSON.parse(todoJSON)
+}
 
 const searchText = {
   text: '',
   hidecompleted: false
 }
+
 
 const renderText = function (todo, searchText) {
   let filteredTodo = todo.filter(function (todo) {
@@ -62,6 +51,7 @@ document.querySelector('#new-todo').addEventListener('submit', function (e) {
       body: e.target.elements.addTodo.value,
       completed: false
     })
+  localStorage.setItem('todo', JSON.stringify(todo))
   renderText(todo, searchText)
   e.target.elements.addTodo.value = ''
 })
